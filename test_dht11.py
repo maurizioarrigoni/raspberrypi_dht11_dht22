@@ -19,7 +19,7 @@ if humidity is not None and temperature is not None:
 			print('')
 			print('Temperatura: {0:0.1f}*C'.format(temperature, humidity))
 			print('Umidità: {1:0.1f} %'.format(temperature, humidity))
-			time.sleep(60)
+			time.sleep(2)
 		except KeyboardInterrupt:
 			sys.exit(1)
 
