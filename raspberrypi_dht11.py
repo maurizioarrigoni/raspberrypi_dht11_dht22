@@ -3,6 +3,7 @@
 # https://www.youtube.com/watch?v=4zhZVFBnSsI&t=276s
 # # apt-get install python3-pip
 # pip install adafruit_dht # (senza sudo)
+# pip install simple-http-server
 
 import sys
 import Adafruit_DHT
