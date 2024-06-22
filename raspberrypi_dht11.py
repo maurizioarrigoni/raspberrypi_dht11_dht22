@@ -19,7 +19,7 @@ def index():
     date_time = now.strftime("%m/%d/%Y, %H:%M:%S")    
     humidity, temperature = Adafruit_DHT.read_retry(sensor, gpio)
     #response = 'Temperatura: {0:0.1f}*C'.format(temperature, humidity) +'</br>' + 'Umidità: {1:0.1f} %'.format(temperature, humidity)
-    HTML_CONTENT = """<!DOCTYPE html><html lang="it"><head><meta charset="UTF-8"><title></title></head><body>"""
+    HTML_CONTENT = """<!DOCTYPE html><html lang="it"><head><meta charset="UTF-8"><meta http-equiv="refresh" content="60"><title></title></head><body>"""
     HTML_CONTENT = HTML_CONTENT + """<h1>raspi3 with DHT11 temperature & humidity sensor</h1>"""
     HTML_CONTENT = HTML_CONTENT + """<h1>Temperatura: """ + '{0:0.1f}*C'.format(temperature, humidity) + """</h1>"""
     HTML_CONTENT = HTML_CONTENT + """<h1>Umidità: """ + '{1:0.1f} %'.format(temperature, humidity) + """</h1>"""
