@@ -22,8 +22,9 @@ def index():
     # HTML_CONTENT = """<!DOCTYPE html><html lang="it"><head><meta charset="UTF-8"><meta http-equiv="refresh" content="60"><title></title></head><body>"""
     HTML_CONTENT = """<!DOCTYPE html><html lang="it"><head><meta charset="UTF-8"><title></title></head><body>"""
     HTML_CONTENT = HTML_CONTENT + """<h1>raspi3 + DHT11"""
-    HTML_CONTENT = HTML_CONTENT + """<h1>Temperatura: """ + '{0:0.1f}*C'.format(temperature, humidity) + """</h1>"""
-    HTML_CONTENT = HTML_CONTENT + """<h1>Umidità: """ + '{1:0.1f} %'.format(temperature, humidity) + """</h1>"""
+    if humidity is not None and temperature is not None:
+        HTML_CONTENT = HTML_CONTENT + """<h1>Temperatura: """ + '{0:0.1f}*C'.format(temperature, humidity) + """</h1>"""
+        HTML_CONTENT = HTML_CONTENT + """<h1>Umidità: """ + '{1:0.1f} %'.format(temperature, humidity) + """</h1>"""
     # HTML_CONTENT = HTML_CONTENT + """<h2>""" + date_time + """</h2>"""
     HTML_CONTENT = HTML_CONTENT + """</body></html>"""
     return (HTML_CONTENT)
