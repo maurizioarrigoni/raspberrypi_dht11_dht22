@@ -10,13 +10,15 @@ import Adafruit_DHT
 import time
 from simple_http_server import route, server
 from datetime import datetime
+import random
 
 @route("/")
 def index():
     sensor = 11
     gpio = 4
     now = datetime.now() # current date and time
-    date_time = now.strftime("%m/%d/%Y, %H:%M:%S")    
+    date_time = now.strftime("%m/%d/%Y, %H:%M:%S")
+    id=random.randrange(1, 100)
     humidity, temperature = Adafruit_DHT.read_retry(sensor, gpio)
     HTML_CONTENT = """<!DOCTYPE html><html lang="it"><head>"""
     HTML_CONTENT = HTML_CONTENT + """<meta charset="UTF-8"><META HTTP-EQUIV="Pragma" CONTENT="no-cache"><META HTTP-EQUIV="Expires" CONTENT="-1"></head><body>"""
@@ -26,6 +28,7 @@ def index():
         HTML_CONTENT = HTML_CONTENT + """<h1>Umidità: """ + '{1:0.1f} %'.format(temperature, humidity) + """</h1>"""
     else:
         HTML_CONTENT = HTML_CONTENT + """<h1>Temperatura e Umidità: N/A</h1>"""
+    HTML_CONTENT = HTML_CONTENT + """<h2>request_id: """+id+"""</h2>"""
     HTML_CONTENT = HTML_CONTENT + """</body></html>"""
     return (HTML_CONTENT)
 
