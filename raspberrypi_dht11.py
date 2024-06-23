@@ -18,7 +18,7 @@ def index():
     gpio = 4
     now = datetime.now() # current date and time
     date_time = now.strftime("%m/%d/%Y, %H:%M:%S")
-    id=random.randrange(1, 100)
+    id=str(random.randrange(1, 100))
     humidity, temperature = Adafruit_DHT.read_retry(sensor, gpio)
     HTML_CONTENT = """<!DOCTYPE html><html lang="it"><head>"""
     HTML_CONTENT = HTML_CONTENT + """<meta charset="UTF-8"><META HTTP-EQUIV="Pragma" CONTENT="no-cache"><META HTTP-EQUIV="Expires" CONTENT="-1"></head><body>"""
