@@ -19,6 +19,7 @@ if humidity is not None and temperature is not None:
                         print('')
                         print('Temperatura: {0:0.1f}*C'.format(temperature, humidity))
                         temp='{0:0.1f}'.format(temperature, humidity)
+                        hum='{1:0.1f}'.format(temperature, humidity)
                         output = "{\"temperature\":\"" + temp + "\", \"humidity\":\"" + hum+ "\"}"
                         print(output)
                         print('Umidità: {1:0.1f} %'.format(temperature, humidity))
