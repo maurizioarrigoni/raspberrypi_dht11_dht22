@@ -46,7 +46,7 @@ def index():
         output = "\""+temp+"\""
         HTML_CONTENT = "{\"temperature\":\"" + temp + "\", \"humidity\":\"" + hum+ "\"}"
     else:
-        HTML_CONTENT =  "{temperature:0, humidity:0}"
+        HTML_CONTENT =  "{\"temperature\":\"-\", \"humidity\":\"0\"}"
     return (HTML_CONTENT)
 
 server.start(port=8080)
