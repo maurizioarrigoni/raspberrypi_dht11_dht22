@@ -32,18 +32,4 @@ def index():
     HTML_CONTENT = HTML_CONTENT + """</body></html>"""
     return (HTML_CONTENT)
 
-@route("/json")
-def index():
-    sensor = 22
-    gpio = 4
-    now = datetime.now() # current date and time
-    date_time = now.strftime("%m/%d/%Y, %H:%M:%S")
-    id=str(random.randrange(1, 100))
-    humidity, temperature = Adafruit_DHT.read_retry(sensor, gpio)
-    if humidity is not None and temperature is not None:
-        HTML_CONTENT = """{"temperature":"""+ '{0:0.1f}*C'.format(temperature, humidity) + """, "humidity":""""+ '{1:0.1f} %'.format(temperature, humidity) + 30, + """":null}"""
-    else:
-        HTML_CONTENT =  """{"temperature":"0", "humidity":"0"}"""
-    return (HTML_CONTENT)
-
 server.start(port=8080)
