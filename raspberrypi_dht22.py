@@ -41,10 +41,10 @@ def index():
     id=str(random.randrange(1, 100))
     humidity, temperature = Adafruit_DHT.read_retry(sensor, gpio)
     if humidity is not None and temperature is not None:
-        print (type(humidity))
-        # str_temperature = '{0:0.1f}*C'.format(temperature, humidity)
-        # str_humidity = '{1:0.1f} %'.format(temperature, humidity)
-        HTML_CONTENT = "{temperature:"+'{0:0.1f}*C'.format(temperature, humidity)+", humidity:"+ '{1:0.1f} %'.format(temperature, humidity) + 30, + "}"
+        temp='{0:0.1f}'.format(temperature, humidity)
+        hum='{1:0.1f} %'.format(temperature, humidity)
+        output = "\""+temp+"\""
+        HTML_CONTENT = "{\"temperature\":\"" + temp + "\", \"humidity\":\"" + hum+ "\"}"
     else:
         HTML_CONTENT =  "{temperature:0, humidity:0}"
     return (HTML_CONTENT)
