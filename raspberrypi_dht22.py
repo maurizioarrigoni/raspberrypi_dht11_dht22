@@ -44,9 +44,9 @@ def index():
         print (type(humidity))
         # str_temperature = '{0:0.1f}*C'.format(temperature, humidity)
         # str_humidity = '{1:0.1f} %'.format(temperature, humidity)
-        HTML_CONTENT = """{\"temperature\":\""""+'{0:0.1f}*C'.format(temperature, humidity)+"""\", \"humidity\":\""""+ '{1:0.1f} %'.format(temperature, humidity) + 30, + """\"}"""
+        HTML_CONTENT = "{\"temperature\":\""+'{0:0.1f}*C'.format(temperature, humidity)+"\", \"humidity\":\""+ '{1:0.1f} %'.format(temperature, humidity) + 30, + "\"}"
     else:
-        HTML_CONTENT =  """{\"temperature\":\"0\", \"humidity\":\"0\"}"""
+        HTML_CONTENT =  "{\"temperature\":\"0\", \"humidity\":\"0\"}"
     return (HTML_CONTENT)
 
 server.start(port=8080)
